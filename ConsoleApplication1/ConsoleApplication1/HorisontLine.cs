@@ -5,9 +5,8 @@ using System.Text;
 
 namespace Snake
 {
-    class HorisontLine
-    {
-        List<Point> pList;
+    class HorisontLine:Figura
+    {        
         public HorisontLine(int xLeft, int xReight, int y, char sym)
         {
             pList = new List<Point>();
@@ -19,15 +18,7 @@ namespace Snake
             }
            
         }
-        public void Drow()
-        {
-            foreach (Point p in pList)
-            {
-                p.Draw();
-
-            }
- 
-        }
+        
 
     }
 }
