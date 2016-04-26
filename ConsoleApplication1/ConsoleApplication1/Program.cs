@@ -15,33 +15,30 @@ namespace Snake
             HorisontLine downLine = new HorisontLine(0, 78, 24, '+');
             VerticalLine lLine = new VerticalLine(0, 24, 0, '+');
             VerticalLine rLine = new VerticalLine(0, 24, 78, '+');
-            upLine.Drow();
-            downLine.Drow();
-            lLine.Drow();
-            rLine.Drow();
+            upLine.Draw();
+            downLine.Draw();
+            lLine.Draw();
+            rLine.Draw();
             
 
             // отрисовка точек
             Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 4, Direction.RIGHT);
-            snake.Drow();
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move(); 
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
+            snake.Draw();
+
+            while (true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey(key.Key);
+                }
 
 
-            Console.Read();
-        
+                Thread.Sleep(100);
+                snake.Move();
+            }
+
         }
     }
 }
